@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prefeitura Inovadora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0066cc;
+      --secondary: #0055aa;
+      --accent: #ffcc00;
+      --bg: #f4f7f9;
+      --font: 'Inter', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    nav.container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: color .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero with animated gradient and illustration */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+
+    .hero-content {
+      color: #fff;
+      max-width: 600px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #333;
+      padding: 0.75rem 2rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* Sections with skewed separators */
+    section {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    section+section {
+      margin-top: -5rem;
+    }
+
+    .skew-top,
+    .skew-bottom {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 5rem;
+      background: var(--bg);
+      transform: skewY(3deg);
+      z-index: -1;
+    }
+
+    .skew-top {
+      top: -5rem;
+    }
+
+    .skew-bottom {
+      bottom: -5rem;
+      transform: skewY(-3deg);
+    }
+
+    .about,
+    .stats,
+    .services {
+      background: #fff;
+    }
+
+    .about h2,
+    .stats h2,
+    .services h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* Stats counters */
+    .stats .grid {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      flex: 1;
+      min-width: 150px;
+      margin: 1rem;
+      text-align: center;
+    }
+
+    .stat .number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat .label {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Services cards */
+    .services .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--bg);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: transform .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-card h3 {
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background: #222;
+      color: #888;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a href="#" class="logo">Prefeitura Inovadora</a>
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#stats">Impacto</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#" class="btn">Chat</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Juntos por uma Cidade Inteligente</h1>
+      <p>Transformamos dados em soluções para melhorar a vida de todos.</p>
+      <a href="#servicos" class="btn">Saiba Mais</a>
+    </div>
+  </section>
+
+  <section id="sobre" class="about">
+    <div class="container">
+      <h2>Quem Somos</h2>
+      <p>A Prefeitura Inovadora se dedica a integrar tecnologia e transparência, criando uma gestão pública cada vez
+        mais eficiente e participativa.</p>
+    </div>
+  </section>
+
+  <section id="stats" class="stats">
+    <div class="skew-top"></div>
+    <div class="container">
+      <h2>Nosso Impacto</h2>
+      <div class="grid">
+        <div class="stat">
+          <div class="number" data-target="120">0</div>
+          <div class="label">Projetos Concluídos</div>
+        </div>
+        <div class="stat">
+          <div class="number" data-target="85">0</div>
+          <div class="label">Parcerias Ativas</div>
+        </div>
+        <div class="stat">
+          <div class="number" data-target="15000">0</div>
+          <div class="label">Cidadãos Atendidos</div>
+        </div>
+      </div>
+    </div>
+    <div class="skew-bottom"></div>
+  </section>
+
+  <section id="servicos" class="services">
+    <div class="container">
+      <h2>Serviços</h2>
+      <div class="grid">
+        <div class="service-card">
+          <h3>Portal Transparência</h3>
+          <p>Acesso fácil a orçamentos e relatórios em tempo real.</p>
+        </div>
+        <div class="service-card">
+          <h3>Atendimento Digital</h3>
+          <p>Solicitações e agendamentos online sem sair de casa.</p>
+        </div>
+        <div class="service-card">
+          <h3>Monitoramento Urbano</h3>
+          <p>Câmeras e sensores para garantir segurança e mobilidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Prefeitura Inovadora. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Contador animado
+    const counters = document.querySelectorAll('.number');
+    counters.forEach(counter => {
+      const update = () => {
+        const target = +counter.getAttribute('data-target');
+        const current = +counter.innerText;
+        const increment = target / 200;
+        if (current < target) {
+          counter.innerText = Math.ceil(current + increment);
+          setTimeout(update, 10);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      update();
+    });
+  </script>
+  <script>
+    window.workmatteAiChatWidgetId = "7ac0a519-1627-41e6-b3a0-43dbc62a636c";
+    window.workmatteAiChatKey = "eyJhbGciOiJIUzI1NiIsImtpZCI6ImZEUVl3alZnNSt1VTVtUUciLCJ0eXAiOiJKV1QifQ.eyJpYXQiOjE3NDkzODYxMTYsImV4cCI6MTc4MTY5OTcxNiwiaXNfYW5vbnltb3VzIjpmYWxzZSwiYXVkIjoiYXV0aGVudGljYXRlZCIsInN1YiI6ImNiNTQxMDY0LTE5Y2YtNDYwMS04ZGUyLTI0MWMxYTgwNjEyOSIsImlzcyI6Imh0dHBzOi8va2hvZ2Rtb29rc2ZxanlidWZ1ZWguc3VwYWJhc2UuY28vYXV0aC92MSIsInJvbGUiOiJhdXRoZW50aWNhdGVkIiwidXNlcl9tZXRhZGF0YSI6eyJ3b3Jrc3BhY2VfaWQiOiJiY2ExNjg1YS1iZDg2LTRhODMtODI0Ny0wYWI5NDlhMWQ5NjkiLCJlbWFpbCI6InJlbmFuLmpvaWFAdHJpcGxlYWkuY29tLmJyIn0sImFhbCI6ImFhbDEiLCJlbWFpbCI6InJlbmFuLmpvaWFAdHJpcGxlYWkuY29tLmJyIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInNlc3Npb25faWQiOiIyMTIwYTE3ZS00NmM4LTQ0MDgtOTU4MS0wNDQ0NDI2MGU4NTAifQ.jfCJhXY1xSQwCCawsOTfpg-Wu1Ze-www6ZNLShKOkvA";
+    window.workmatteAiApiUrl = "https://api.workmatte.ai/api";
+  </script>
+  <script src="https://app.workmatte.ai/widgets/chat.js"></script>
+
+</body>
+
+</html>
